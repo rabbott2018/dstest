@@ -1,5 +1,5 @@
-host=10.0.0.20
-name=RickA IM Rule
-basedir=/var/log
-include=*.html
-exclude=*.txt
+host=carcustomization
+name=Car Customization
+basedir=/usr/bin/carcustomization
+include=*.sh
+exclude=*.readme
