@@ -47,7 +47,7 @@ integrity_monitoring_rule.template="file"
 
 try:
     api_response = api_instance.create_integrity_monitoring_rule(api_version, integrity_monitoring_rule=integrity_monitoring_rule)
-    pprint(api_response)
+    rule_id = api_response.id
 except ApiException as e:
     print("An exception occurred when calling IntegrityMonitoringRulesApi.create_integrity_monitoring_rule: %s\n" % e)
 
