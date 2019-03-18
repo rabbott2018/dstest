@@ -1,20 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @rabbott2018 Sign out
-0
-0 0 rabbott2018/dstest
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
-dstest/create_im_rule.py
- ricka updated create_im_rule.py to apply the rule after it's created
-39e4e92  4 minutes ago
-88 lines (71 sloc)  3.02 KB
-    
 from __future__ import print_function
 import sys, warnings
 import deepsecurity
