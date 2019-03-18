@@ -1,3 +1,20 @@
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @rabbott2018 Sign out
+0
+0 0 rabbott2018/dstest
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+dstest/create_im_rule.py
+ ricka updated create_im_rule.py to apply the rule after it's created
+39e4e92  4 minutes ago
+88 lines (71 sloc)  3.02 KB
+    
 from __future__ import print_function
 import sys, warnings
 import deepsecurity
@@ -34,7 +51,7 @@ configuration.host = 'https://ec2-35-171-228-214.compute-1.amazonaws.com:4119/ap
 # Authentication
 configuration.api_key['api-secret-key'] = '6:ff9K3EtTWAh4qYUh2amGWNohOP6Pt2P+/PAg1hvKfsk='
 
-# Initialization
+# Create the new IM rule
 # Set Any Required Values
 api_instance = deepsecurity.IntegrityMonitoringRulesApi(deepsecurity.ApiClient(configuration))
 api_version = 'v1'
@@ -51,12 +68,10 @@ try:
 except ApiException as e:
     print("An exception occurred when calling IntegrityMonitoringRulesApi.create_integrity_monitoring_rule: %s\n" % e)
 
-Initialization
+# Find the host id of the host we want to apply the rule to
 # Set Any Required Values
 api_instance = deepsecurity.ComputersApi(deepsecurity.ApiClient(configuration))
 api_version = 'v1'
-hostname = "10.0.0.20"
-
 overrides = False
 
 try:
@@ -70,7 +85,7 @@ try:
 except ApiException as e:
     print("An exception occurred when calling ComputersApi.search_computers: %s\n" % e)
 
-
+# Apply the rule to the host
 api_instance = deepsecurity.ComputerIntegrityMonitoringRuleAssignmentsRecommendationsApi(deepsecurity.ApiClient(configuration))
 computer_id = host_id
 api_version = 'v1'
@@ -83,5 +98,4 @@ try:
     pprint(api_response)
 except ApiException as e:
     print("An exception occurred when calling ComputerIntegrityMonitoringRuleAssignmentsRecommendationsApi.add_integrity_monitoring_rule_ids_to_computer: %s\n" % e)
-
 
