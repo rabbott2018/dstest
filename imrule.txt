@@ -1,4 +1,5 @@
 host=10.0.0.20
 name=RickA IM Rule
-include=/var/log
-exclude=/tmp
+basedir=/var/log
+include=*.html
+exclude=*.txt
