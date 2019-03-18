@@ -36,30 +36,16 @@ configuration.api_key['api-secret-key'] = '3:JrbkU4dZBTxHaMJZBi80Tqksprv24+7nXDL
 # Set Any Required Values
 api_instance = deepsecurity.IntegrityMonitoringRulesApi(deepsecurity.ApiClient(configuration))
 api_version = 'v1'
+integrity_monitoring_rule = deepsecurity.IntegrityMonitoringRule()
+integrity_monitoring_rule.name=hostname.rstrip()rulename.rstrip()
+integrity_monitoring_rule.file_base_directory=includedir.rstrip()
+integrity_monitoring_rule.file_excluded_values=excludedir.rstrip()
+integrity_monitoring_rule.template="file"
 
 try:
-    api_response = api_instance.list_integrity_monitoring_rules(api_version)
-    attrs = api_response._integrity_monitoring_rules
-    ids = [len(attrs)]
-    for x in attrs:
-        print((getattr(x,"name")),(getattr(x,"id")))
-        #pprint(getattr(x,"id"))
-        #ids.append(getattr(x,"id"))
-        #sleep(1)
-    
-    #print(len(attrs))
-    #print(len(ids))
-    #for y in ids:
-    #    print(y)
-    #    sleep(0.5)
-    #i=29
-    #pprint(getattr(attrs,attrs[i]))
-    #pprint(len(attrs))
-    
-    #pprint(api_response)
-    #integrity_monitoring_rule_id = 1;
-    #api_response = api_instance.describe_integrity_monitoring_rule(integrity_monitoring_rule_id, api_version)
-    #pprint(getattr(api_response, "id"))
-    #pprint(api_response)
+    api_response = api_instance.create_integrity_monitoring_rule(api_version, integrity_monitoring_rule=integrity_monitoring_rule)
+    pprint(api_response)
 except ApiException as e:
-    print("An exception occurred when calling IntegrityMonitoringRulesApi.list_integrity_monitoring_rules: %s\n" % e)
+    print("An exception occurred when calling IntegrityMonitoringRulesApi.create_integrity_monitoring_rule: %s\n" % e)
+
+
