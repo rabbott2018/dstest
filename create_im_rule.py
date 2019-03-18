@@ -51,4 +51,37 @@ try:
 except ApiException as e:
     print("An exception occurred when calling IntegrityMonitoringRulesApi.create_integrity_monitoring_rule: %s\n" % e)
 
+Initialization
+# Set Any Required Values
+api_instance = deepsecurity.ComputersApi(deepsecurity.ApiClient(configuration))
+api_version = 'v1'
+hostname = "10.0.0.20"
+
+overrides = False
+
+try:
+    computers = api_instance.list_computers(api_version, overrides=False)
+    for computer in computers.computers:
+            computer_info = []
+            
+            if computer.host_name == hostname.rstrip():
+                host_id = computer.id
+    
+except ApiException as e:
+    print("An exception occurred when calling ComputersApi.search_computers: %s\n" % e)
+
+
+api_instance = deepsecurity.ComputerIntegrityMonitoringRuleAssignmentsRecommendationsApi(deepsecurity.ApiClient(configuration))
+computer_id = host_id
+api_version = 'v1'
+integrity_monitoring_rule_ids = deepsecurity.RuleIDs()
+integrity_monitoring_rule_ids.rule_ids=rule_id
+overrides = False
+
+try:
+    api_response = api_instance.add_integrity_monitoring_rule_ids_to_computer(computer_id, api_version, integrity_monitoring_rule_ids=integrity_monitoring_rule_ids, overrides=overrides)
+    pprint(api_response)
+except ApiException as e:
+    print("An exception occurred when calling ComputerIntegrityMonitoringRuleAssignmentsRecommendationsApi.add_integrity_monitoring_rule_ids_to_computer: %s\n" % e)
+
 
