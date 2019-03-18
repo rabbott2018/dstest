@@ -6,22 +6,22 @@ from pprint import pprint
 from deepsecurity.models import integrity_monitoring_rule
 from time import sleep
 
-#f = open("imrule.txt","r")
-#lines = f.readlines()
-# print lines
-#print len(lines)
-#f.close()
-#for n, val in enumerate(lines):
-#   globals()["var%d"%n] = val
+f = open("imrule.txt","r")
+lines = f.readlines()
+print (lines)
+print (len(lines))
+f.close()
+for n, val in enumerate(lines):
+   globals()["var%d"%n] = val
 
-#host,hostname = var0.split("=")
-#print hostname.rstrip()
-#imrule, rulename = var1.split("=")
-#print rulename.rstrip()
-#include, includedir = var2.split("=")
-#print includedir.rstrip()
-#exclude, excludedir = var3.split("=")
-#print excludedir.rstrip()
+host,hostname = var0.split("=")
+print (hostname.rstrip())
+imrule, rulename = var1.split("=")
+print (rulename.rstrip())
+include, includedir = var2.split("=")
+print (includedir.rstrip())
+exclude, excludedir = var3.split("=")
+print (excludedir.rstrip())
 
 # Setup
 if not sys.warnoptions:
